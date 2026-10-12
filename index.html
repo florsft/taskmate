@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate | Daftar Tugas Kuliah</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">TaskMate</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="about.html">Biodata</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <p class="eyebrow">PENGELOLA TUGAS KULIAH</p>
+            <h1>Atur tugasmu, satu per satu.</h1>
+            <p>Catat tugas kuliah dan tandai jika sudah selesai agar kegiatan belajarmu lebih teratur.</p>
+        </section>
+
+        <section class="task-section">
+            <h2>Daftar Tugas</h2>
+            <p class="section-description">
+                Masukkan tugas yang perlu kamu kerjakan.
+            </p>
+
+            <form id="taskForm" class="task-form">
+                <label for="taskInput">Nama tugas</label>
+                <div class="input-row">
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Tambahkan tugas disini"
+                        autocomplete="off"
+                    >
+                    <button type="submit">Tambah Tugas</button>
+                </div>
+                <p id="formMessage" class="form-message" aria-live="polite"></p>
+            </form>
+
+            <ul id="taskList" class="task-list">
+                <li class="empty-message">
+                    Belum ada tugas. Tambahkan tugas pertamamu!
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>TaskMate &copy; 2026 | Website Daftar Tugas Kuliah</p>
+    </footer>
+</body>
+</html>
