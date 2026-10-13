@@ -150,12 +150,12 @@ Semua kode ada di `script.js`. Instruksi tugas meminta beberapa jenis interaksi.
 
 | Jenis interaksi | Status | Penerapan |
 |-----------------|--------|-----------|
-| **1. Event Handling** | ✅ Ada | `submit` pada form (tambah tugas) dan `change` pada kotak centang (tandai selesai) |
-| **2. DOM Manipulation** | ✅ Ada | Membuat elemen dengan `createElement`, memasang dengan `appendChild`, menghapus pesan kosong dengan `remove()`, mengisi teks dengan `innerText` |
-| **3. Style & Animation** | ✅ Ada | `classList.add/remove("completed")` mengubah gaya tugas (coret dan abu) dan memicu animasi CSS |
-| **4. Form Validation** | ✅ Ada | Input dibersihkan dengan `trim()`. Jika kosong, muncul pesan "Nama tugas harus diisi." dan kursor kembali ke kolom |
-| **5. AJAX** | ❌ Belum | Tidak dipakai karena website tidak membutuhkan data dari server |
-| **Tambahan: LocalStorage** | ✅ Ada | Data tugas disimpan dan dimuat kembali, jadi tidak hilang saat refresh |
+| **1. Event Handling** | Ada | `submit` pada form (tambah tugas) dan `change` pada kotak centang (tandai selesai) |
+| **2. DOM Manipulation** | Ada | Membuat elemen dengan `createElement`, memasang dengan `appendChild`, menghapus pesan kosong dengan `remove()`, mengisi teks dengan `innerText` |
+| **3. Style & Animation** | Ada | `classList.add/remove("completed")` mengubah gaya tugas (coret dan abu) dan memicu animasi CSS |
+| **4. Form Validation** | Ada | Input dibersihkan dengan `trim()`. Jika kosong, muncul pesan "Nama tugas harus diisi." dan kursor kembali ke kolom |
+| **5. AJAX** | Belum | Tidak dipakai karena website tidak membutuhkan data dari server |
+| **Tambahan: LocalStorage** | Ada | Data tugas disimpan dan dimuat kembali, jadi tidak hilang saat refresh |
 
 ### Fungsi-fungsi utama
 
