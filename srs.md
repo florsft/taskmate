@@ -1,148 +1,272 @@
-<div align="center">
+# Software Requirements Specification (SRS)
 
-# SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+## TaskMate: Website Daftar Tugas Kuliah
 
-## WEBSITE DAFTAR TUGAS KULIAH "TASKMATE"
+| | |
+|---|---|
+| **Mata kuliah** | Pemrograman Web |
+| **Program studi** | Sarjana Terapan Manajemen Informatika|
+| **Dosen** |Faris Abdi El Hakim, S.Kom., M.Tr.Kom. |
+| **Penyusun** | Flo Raras Fathin, NIM 25091397132 |
 
-**Disusun oleh:**
+## Daftar Isi
 
-Flo Raras Fathin
-
-NIM 25091397132
-
-**Program Studi Manajemen Informatika**
-
-**Fakultas Vokasi**
-
-**2026**
-
-</div>
+1. Pendahuluan
+2. Deskripsi Umum
+3. Kebutuhan Fungsional
+4. Kebutuhan Antarmuka
+5. Kebutuhan Non-Fungsional
+6. Alur Penggunaan
+7. Struktur Data
+8. Pengujian
+9. Batasan dan Pengembangan Lanjutan
 
 ---
 
-## DAFTAR ISI
+## 1. Pendahuluan
 
-- [BAB I PENDAHULUAN](#bab-i-pendahuluan)
-  - [1.1 Latar Belakang](#11-latar-belakang)
-  - [1.2 Tujuan](#12-tujuan)
-  - [1.3 Ruang Lingkup](#13-ruang-lingkup)
-  - [1.4 Definisi dan Istilah](#14-definisi-dan-istilah)
-- [BAB II DESKRIPSI UMUM](#bab-ii-deskripsi-umum)
-  - [2.1 Gambaran Sistem](#21-gambaran-sistem)
-  - [2.2 Pengguna Sistem](#22-pengguna-sistem)
-  - [2.3 Batasan Sistem](#23-batasan-sistem)
-- [BAB III KEBUTUHAN SISTEM](#bab-iii-kebutuhan-sistem)
-  - [3.1 Kebutuhan Fungsional](#31-kebutuhan-fungsional)
-  - [3.2 Kebutuhan Non-Fungsional](#32-kebutuhan-non-fungsional)
-  - [3.3 Kebutuhan Antarmuka](#33-kebutuhan-antarmuka)
-- [BAB IV PENUTUP](#bab-iv-penutup)
-  - [4.1 Kesimpulan](#41-kesimpulan)
----
+### 1.1 Tujuan Dokumen
+Menjelaskan kebutuhan website **TaskMate** dengan bahasa yang mudah dipahami, agar pembuat, dosen, dan pembaca umum punya gambaran yang sama tentang cara kerja website ini.
 
-## BAB I PENDAHULUAN
-
-### 1.1 Latar Belakang
-
-Mahasiswa umumnya menerima banyak tugas dari berbagai mata kuliah dengan waktu pengumpulan yang berbeda-beda. Apabila tugas tersebut tidak dicatat dengan baik, mahasiswa berisiko lupa atau terlambat mengerjakannya. Oleh karena itu, dibutuhkan sebuah alat sederhana yang dapat membantu mahasiswa mencatat tugas sekaligus mengetahui tugas mana yang sudah selesai dan mana yang belum.
-
-TaskMate adalah website daftar tugas kuliah yang dibuat untuk memenuhi kebutuhan tersebut. Website ini dirancang agar mudah digunakan dan dapat langsung dibuka melalui browser tanpa perlu instalasi.
-
-### 1.2 Tujuan
-
-Dokumen Software Requirements Specification (SRS) ini disusun untuk menjelaskan kebutuhan website TaskMate, yaitu fitur apa saja yang harus tersedia dan kualitas seperti apa yang harus dimiliki. Dokumen ini diharapkan dapat menjadi acuan bagi pembuat dan dosen dalam memahami sistem yang dikembangkan.
+### 1.2 Latar Belakang
+Mahasiswa sering punya banyak tugas dari berbagai mata kuliah sehingga mudah ada yang terlupa. TaskMate dibuat sebagai catatan tugas yang sederhana dan bisa dipakai tanpa daftar akun maupun instal aplikasi. Website ini juga dibuat sebagai tugas UTS Pemrograman Web untuk menunjukkan kemampuan membuat antarmuka yang interaktif dengan HTML, CSS, dan JavaScript.
 
 ### 1.3 Ruang Lingkup
+TaskMate berjalan di browser dan mampu:
+- mencatat tugas kuliah,
+- menandai tugas yang sudah selesai,
+- menyimpan daftar tugas di browser,
+- menampilkan biodata pembuat website.
 
-TaskMate adalah website yang berjalan langsung di browser tanpa memerlukan server maupun database. Melalui website ini, pengguna dapat mencatat tugas kuliah, menandai tugas yang sudah selesai, dan menyimpan daftar tugas di browser agar tidak hilang ketika halaman ditutup. Selain itu, tersedia halaman biodata yang berisi informasi singkat tentang pengguna.
+**Di luar ruang lingkup versi ini:** akun/login, penyimpanan di server, pengingat atau notifikasi, serta hapus dan edit tugas.
 
-Pada versi ini, TaskMate belum mencakup fitur akun pengguna, penghapusan tugas, pengeditan tugas, tenggat waktu, dan notifikasi.
+### 1.4 Istilah Penting
 
-### 1.4 Definisi dan Istilah
-
-| No | Istilah | Penjelasan |
-|---|---|---|
-| 1 | SRS | Dokumen yang berisi kebutuhan sebuah perangkat lunak |
-| 2 | HTML | Bahasa untuk membuat struktur halaman website |
-| 3 | CSS | Bahasa untuk mengatur tampilan website |
-| 4 | JavaScript | Bahasa pemrograman agar website bisa berinteraksi |
-| 5 | localStorage | Tempat penyimpanan data kecil di dalam browser |
-| 6 | Browser | Aplikasi untuk membuka website, misalnya Chrome atau Firefox |
-
----
-
-## BAB II DESKRIPSI UMUM
-
-### 2.1 Gambaran Sistem
-
-TaskMate terdiri atas dua halaman utama. Halaman Beranda digunakan untuk menambah dan melihat daftar tugas, sedangkan halaman Biodata digunakan untuk menampilkan informasi tentang pengguna. Kedua halaman dihubungkan oleh menu navigasi di bagian atas website.
-
-| No | Halaman | File | Isi |
-|---|---|---|---|
-| 1 | Beranda | `index.html` | Tempat menambah dan melihat daftar tugas |
-| 2 | Biodata | `about.html` | Informasi tentang pembuat/pengguna |
-
-Selain kedua halaman tersebut, website ini didukung oleh dua file lain yang bekerja bersama.
-
-| No | File | Fungsi |
-|---|---|---|
-| 1 | `style.css` | Mengatur tampilan |
-| 2 | `script.js` | Menjalankan fitur daftar tugas |
-
-### 2.2 Pengguna Sistem
-
-Pengguna TaskMate adalah mahasiswa yang ingin mencatat tugas kuliahnya. Pengguna tidak memerlukan keahlian khusus karena cukup mampu mengoperasikan browser untuk dapat menggunakan website ini.
-
-### 2.3 Batasan Sistem
-
-TaskMate menyimpan data tugas di dalam browser, sehingga data hanya tersedia pada browser dan perangkat yang digunakan saat mencatat. Data tidak dapat dibuka dari browser atau perangkat lain, dan akan hilang apabila pengguna menghapus data browser. Selain itu, pada versi ini belum tersedia fitur untuk menghapus maupun mengedit tugas yang sudah dicatat.
+| Istilah | Arti sehari-hari |
+|---------|------------------|
+| **Browser** | Aplikasi untuk membuka website (Chrome, Edge, Firefox) |
+| **HTML** | Bahasa untuk menyusun isi halaman |
+| **CSS** | Bahasa untuk mengatur tampilan: warna, ukuran, animasi |
+| **JavaScript** | Bahasa yang membuat website bisa bereaksi saat diklik atau diisi |
+| **LocalStorage** | "Laci kecil" di browser untuk menyimpan data agar tidak hilang saat halaman ditutup |
+| **Responsif** | Tampilan menyesuaikan ukuran layar |
+| **GitHub Pages** | Layanan gratis GitHub untuk menaruh website agar bisa dibuka lewat internet |
+| **Pengguna** | Orang yang memakai TaskMate |
 
 ---
 
-## BAB III KEBUTUHAN SISTEM
+## 2. Deskripsi Umum
 
-### 3.1 Kebutuhan Fungsional
+### 2.1 Gambaran Produk
+TaskMate adalah website **mandiri**. Semua proses berjalan di browser pengguna, tanpa server khusus. Website ditaruh di GitHub Pages.
 
-Kebutuhan fungsional adalah hal-hal yang dapat dilakukan oleh website. Fitur yang tersedia pada TaskMate dijelaskan pada tabel berikut.
+| Halaman | File | Isi |
+|---------|------|-----|
+| Beranda | `index.html` | Form tambah tugas dan daftar tugas |
+| Biodata | `about.html` | Profil singkat pembuat |
 
-| No | Fitur | Penjelasan |
-|---|---|---|
-| 1 | Tambah tugas | Pengguna mengetik nama tugas, lalu klik **Tambah Tugas**. |
-| 2 | Cek input kosong | Jika kolom kosong, tugas tidak ditambahkan dan muncul pesan "Nama tugas harus diisi." |
-| 3 | Tandai selesai | Pengguna mencentang kotak di samping tugas. Tugas yang selesai teksnya dicoret. Centang bisa dibatalkan. |
-| 4 | Simpan otomatis | Tugas disimpan di browser sehingga tidak hilang saat halaman dimuat ulang. |
-| 5 | Pesan daftar kosong | Jika belum ada tugas, muncul pesan "Belum ada tugas. Tambahkan tugas pertamamu!" |
-| 6 | Lihat biodata | Halaman Biodata menampilkan nama, NIM, program studi, fakultas, dan angkatan. |
-| 7 | Pindah halaman | Menu di bagian atas untuk berpindah antara Beranda dan Biodata. |
+File pendukung: `style.css` (tampilan), `script.js` (logika), `foto.jpeg` (foto profil).
 
-### 3.2 Kebutuhan Non-Fungsional
+### 2.2 Fungsi Utama
+1. Menambah tugas baru
+2. Menampilkan daftar tugas
+3. Menandai tugas selesai atau belum selesai
+4. Menyimpan tugas secara otomatis
+5. Berpindah antara halaman Beranda dan Biodata
 
-Kebutuhan non-fungsional adalah kualitas yang harus dimiliki website, bukan fitur yang dijalankan pengguna. Kualitas yang diharapkan dari TaskMate dijelaskan pada tabel berikut.
+### 2.3 Karakteristik Pengguna
 
-| No | Kebutuhan | Penjelasan |
-|---|---|---|
-| 1 | Mudah dipakai | Tampilan sederhana dan tidak perlu panduan khusus. |
-| 2 | Responsif | Tampilan menyesuaikan layar laptop, tablet, dan HP. |
-| 3 | Kompatibel | Dapat dibuka di Chrome, Firefox, Edge, dan Safari. |
-| 4 | Tanpa instalasi | Cukup membuka `index.html`, tanpa server atau database. |
-| 5 | Cepat | Tugas langsung muncul tanpa memuat ulang halaman. |
-| 6 | Data pribadi aman | Data hanya ada di browser pengguna dan tidak dikirim ke mana pun. |
+| Pengguna | Penjelasan |
+|----------|------------|
+| Mahasiswa | Pengguna utama yang mencatat tugas kuliah |
+| Pengguna umum / penilai | Cukup bisa mengetik dan mengklik, tanpa keahlian teknis |
 
-### 3.3 Kebutuhan Antarmuka
+### 2.4 Lingkungan Pengoperasian
+- Perangkat: laptop/PC, tablet, atau HP
+- Browser modern yang mendukung JavaScript dan LocalStorage
+- Koneksi internet hanya diperlukan untuk membuka alamat GitHub Pages. Setelah halaman terbuka, semua fitur berjalan tanpa internet.
 
-Antarmuka adalah bagian website yang dilihat dan digunakan langsung oleh pengguna. Bagian-bagian antarmuka TaskMate dijelaskan pada tabel berikut.
+### 2.5 Batasan Perancangan
+- Hanya memakai HTML, CSS, dan JavaScript murni (tanpa framework).
+- Data disimpan di LocalStorage sehingga hanya berlaku di satu browser pada satu perangkat.
+- Bahasa tampilan: Bahasa Indonesia.
+- Kode HTML dan CSS mengikuti standar W3C.
 
-| No | Bagian | Penjelasan |
-|---|---|---|
-| 1 | Menu navigasi | Berisi logo TaskMate serta tautan Beranda dan Biodata. Halaman yang sedang dibuka diberi penanda. |
-| 2 | Form tugas | Kolom input dan tombol **Tambah Tugas**. |
-| 3 | Daftar tugas | Menampilkan semua tugas beserta kotak centang. |
-| 4 | Kartu biodata | Menampilkan inisial dan data diri pengguna. |
-| 5 | Footer | Keterangan hak cipta di bagian bawah setiap halaman. |
+### 2.6 Asumsi dan Ketergantungan
+- JavaScript aktif di browser pengguna.
+- Penyimpanan data (LocalStorage) tidak dinonaktifkan.
+- File `foto.jpeg` ada di folder yang sama dengan `about.html`.
 
 ---
 
-## BAB IV PENUTUP
+## 3. Kebutuhan Fungsional
 
-### 4.1 Kesimpulan
+Kebutuhan fungsional adalah hal-hal yang **harus bisa dilakukan** website.
 
-TaskMate adalah website daftar tugas kuliah yang sederhana dan mudah digunakan. Fitur utamanya meliputi menambah tugas, menandai tugas yang sudah selesai, dan menyimpan daftar tugas di browser. Dokumen SRS ini menjelaskan kebutuhan sistem sebagai acuan dalam pembuatan dan pengembangan website.
+| Kode | Kebutuhan | Penjelasan |
+|------|-----------|------------|
+| **FR-01** | Menambah tugas | Pengguna mengetik nama tugas lalu menekan *Tambah Tugas* (atau Enter) untuk memasukkannya ke daftar. |
+| **FR-02** | Validasi input kosong | Jika kolom kosong atau hanya berisi spasi, tugas **tidak** ditambahkan dan muncul pesan "Nama tugas harus diisi." Kursor kembali ke kolom. |
+| **FR-03** | Membersihkan form | Setelah tugas berhasil ditambah, kolom dikosongkan, pesan error dihapus, dan kursor kembali ke kolom. |
+| **FR-04** | Menampilkan daftar tugas | Semua tugas tampil sebagai daftar, berurutan dari yang pertama ditambahkan. |
+| **FR-05** | Pesan daftar kosong | Jika belum ada tugas, tampil "Belum ada tugas. Tambahkan tugas pertamamu!" Pesan hilang saat tugas pertama ditambahkan. |
+| **FR-06** | Menandai tugas selesai | Pengguna mencentang kotak di samping tugas. Teks menjadi abu-abu dan dicoret. |
+| **FR-07** | Membatalkan tanda selesai | Pengguna menghilangkan centang. Tampilan kembali normal. |
+| **FR-08** | Menyimpan otomatis | Setiap tugas ditambah atau status centang berubah, daftar langsung disimpan ke LocalStorage. |
+| **FR-09** | Memuat data tersimpan | Saat halaman dibuka atau di-refresh, tugas tersimpan tampil kembali lengkap dengan status selesainya. |
+| **FR-10** | Navigasi halaman | Menu atas berpindah antara Beranda dan Biodata. Menu halaman aktif diberi penanda. Klik logo membuka Beranda. |
+| **FR-11** | Menampilkan biodata | Halaman Biodata menampilkan foto, nama, program studi, NIM, fakultas, dan angkatan. |
+| **FR-12** | Animasi interaksi | Elemen halaman tampil dengan animasi (muncul, bergeser, membal, bergetar) untuk memberi umpan balik kepada pengguna. |
+
+---
+
+## 4. Kebutuhan Antarmuka
+
+### 4.1 Antarmuka Pengguna
+
+**Di semua halaman**
+- **Header/navigasi** di atas: logo TaskMate dan menu (Beranda, Biodata).
+- **Footer** di bawah: "TaskMate © 2026 | Website Daftar Tugas Kuliah".
+- Bagian sambutan berisi judul dan deskripsi singkat halaman.
+
+**Halaman Beranda**
+- Judul: "Atur tugasmu, satu per satu."
+- Kartu *Daftar Tugas*: kolom input, tombol *Tambah Tugas*, area pesan error, dan daftar tugas.
+- Setiap tugas berisi kotak centang dan nama tugas.
+
+**Halaman Biodata**
+- Judul: "Biodata Mahasiswa".
+- Kartu berisi foto bulat dan data diri.
+
+### 4.2 Gaya Visual
+
+| Unsur | Pilihan |
+|-------|---------|
+| Warna | Krem lembut (latar), putih (kartu), cokelat kemerahan (judul dan tombol) |
+| Huruf | Book Antiqua, cadangan Georgia |
+| Bentuk | Kartu dengan sudut membulat dan bayangan halus |
+
+### 4.3 Animasi
+- Navigasi turun dari atas saat halaman dibuka.
+- Teks sambutan dan kartu naik dengan halus.
+- Tugas baru muncul dengan efek memantul.
+- Kotak centang membal saat dicentang.
+- Tugas bergeser saat disorot kursor.
+- Pesan error bergetar.
+- Pesan "belum ada tugas" berdenyut pelan.
+- Foto profil membesar dan berputar sedikit saat disorot.
+- Animasi **dimatikan** bagi pengguna yang mengaktifkan pengaturan *reduce motion*.
+
+### 4.4 Antarmuka Perangkat Keras dan Lunak
+- Perangkat keras: tidak ada kebutuhan khusus selain perangkat yang bisa membuka browser.
+- Perangkat lunak: browser modern. Data disimpan di LocalStorage dengan kunci `tasks`.
+
+---
+
+## 5. Kebutuhan Non-Fungsional
+
+Kebutuhan non-fungsional adalah **mutu** website: seberapa nyaman, cepat, dan aman.
+
+| Kode | Aspek | Kebutuhan |
+|------|-------|-----------|
+| **NFR-01** | Kemudahan penggunaan | Tampilan sederhana dan berbahasa mudah dipahami. Pengguna bisa memakainya tanpa panduan. |
+| **NFR-02** | Responsif | Menyesuaikan layar: laptop, tablet (maks. 768 px), dan HP (maks. 480 px). Di HP, menu tersusun ke bawah dan tombol selebar layar. |
+| **NFR-03** | Kecepatan | Respons cepat karena proses berjalan di perangkat pengguna. |
+| **NFR-04** | Keandalan data | Data tidak hilang saat refresh atau ditutup, selama data browser tidak dibersihkan. |
+| **NFR-05** | Aksesibilitas | Kotak centang punya `aria-label`, pesan error dibacakan otomatis (`aria-live`), gambar punya `alt`, kolom aktif diberi garis sorot. |
+| **NFR-06** | Kompatibilitas | Berjalan di Chrome, Edge, Firefox, dan Safari versi terbaru. |
+| **NFR-07** | Keamanan | Teks tugas ditampilkan sebagai teks biasa (bukan kode), sehingga aman dari penyisipan kode berbahaya. Tidak ada data yang dikirim ke internet. |
+| **NFR-08** | Kemudahan perawatan | Kode dipisah menjadi isi (HTML), tampilan (CSS), dan logika (JS), serta diberi komentar. |
+| **NFR-09** | Kesesuaian standar | HTML dan CSS dapat divalidasi lewat validator W3C. |
+| **NFR-10** | Kenyamanan visual | Animasi tidak mengganggu dan dapat dimatikan lewat pengaturan perangkat. |
+
+---
+
+## 6. Alur Penggunaan
+
+### 6.1 Menambah Tugas
+1. Pengguna membuka Beranda.
+2. Pengguna mengetik nama tugas.
+3. Pengguna menekan *Tambah Tugas*.
+4. Sistem memeriksa isian:
+   - **Kosong:** tampil pesan "Nama tugas harus diisi."
+   - **Terisi:** tugas ditambahkan, disimpan, dan kolom dikosongkan.
+
+### 6.2 Menandai Tugas Selesai
+1. Pengguna mencentang kotak di samping tugas.
+2. Sistem mencoret teks dan mengubah warnanya.
+3. Sistem menyimpan perubahan.
+
+### 6.3 Membuka Kembali Website
+1. Pengguna membuka website.
+2. Sistem membaca data dari LocalStorage.
+3. Daftar tugas tampil seperti terakhir kali dipakai.
+
+### 6.4 Melihat Biodata
+1. Pengguna menekan menu *Biodata*.
+2. Halaman Biodata terbuka menampilkan profil pembuat.
+
+---
+
+## 7. Struktur Data
+
+Setiap tugas disimpan sebagai pasangan **nama** dan **status selesai**. Seluruh tugas disimpan dalam satu daftar di LocalStorage dengan kunci `tasks`.
+
+| Data | Jenis | Contoh | Arti |
+|------|-------|--------|------|
+| `name` | Teks | "Kerjakan laporan Basis Data" | Nama tugas |
+| `completed` | Benar/Salah | `false` | `true` bila sudah dicentang |
+
+Contoh isi penyimpanan:
+
+```json
+[
+  { "name": "Kerjakan laporan Basis Data", "completed": false },
+  { "name": "Baca materi Pemrograman Web", "completed": true }
+]
+```
+
+---
+
+## 8. Pengujian
+
+Tabel berikut dipakai untuk memeriksa apakah kebutuhan sudah terpenuhi.
+
+| No | Skenario | Langkah | Hasil yang diharapkan | Kebutuhan |
+|----|----------|---------|-----------------------|-----------|
+| 1 | Tambah tugas | Ketik "Tugas A", klik *Tambah Tugas* | "Tugas A" muncul di daftar, kolom kosong | FR-01, FR-03 |
+| 2 | Tambah dengan Enter | Ketik "Tugas B", tekan Enter | "Tugas B" muncul di daftar | FR-01 |
+| 3 | Input kosong | Biarkan kolom kosong, klik tambah | Muncul pesan "Nama tugas harus diisi." | FR-02 |
+| 4 | Input spasi saja | Ketik beberapa spasi, klik tambah | Pesan error muncul, tugas tidak ditambah | FR-02 |
+| 5 | Daftar kosong | Buka website pertama kali | Muncul pesan "Belum ada tugas..." | FR-05 |
+| 6 | Pesan kosong hilang | Tambah satu tugas | Pesan "Belum ada tugas" menghilang | FR-05 |
+| 7 | Tandai selesai | Centang tugas | Teks abu-abu dan dicoret | FR-06 |
+| 8 | Batalkan selesai | Hilangkan centang | Tampilan kembali normal | FR-07 |
+| 9 | Data tersimpan | Tambah dan centang tugas, lalu refresh | Tugas dan status centang tetap ada | FR-08, FR-09 |
+| 10 | Navigasi | Klik *Biodata*, lalu *Beranda* | Halaman berpindah dengan benar, menu aktif ditandai | FR-10 |
+| 11 | Biodata | Buka halaman Biodata | Foto dan data diri tampil lengkap | FR-11 |
+| 12 | Responsif HP | Perkecil jendela browser hingga 480 px | Menu tersusun ke bawah, tombol selebar layar | NFR-02 |
+
+---
+
+## 9. Batasan dan Pengembangan Lanjutan
+
+### 9.1 Batasan Versi Ini
+- Tugas belum bisa dihapus atau diedit.
+- Data hanya tersimpan di satu browser pada satu perangkat dan hilang jika data browser dibersihkan.
+- Tugas dengan nama yang sama diperbolehkan.
+- AJAX belum dipakai.
+
+### 9.2 Saran Pengembangan
+
+| Prioritas | Fitur |
+|-----------|-------|
+| Tinggi | Tombol hapus dan edit tugas |
+| Sedang | Tanggal tenggat dan mata kuliah per tugas |
+| Sedang | Filter: semua, belum selesai, selesai |
+| Rendah | Mode gelap |
+| Rendah | Sinkronisasi antar perangkat lewat akun |
+
+---
+
+*Dokumen SRS TaskMate versi 1.0*
